@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gyau Prince — AI Automation Blueprints</title>
+<meta name="description" content="Gyau Prince designs and builds the AI systems that let businesses run on autopilot — commerce platforms, community systems, lead funnels, and client intake automation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy: #0A2540;
+    --navy-deep: #071A2E;
+    --card: #0F2D4D;
+    --card-line: rgba(173,209,255,.16);
+    --line: rgba(173,209,255,.14);
+    --line-strong: rgba(173,209,255,.32);
+    --paper: #EAF2FF;
+    --paper-dim: #93AECF;
+    --stamp: #FF6A2C;
+    --stamp-dim: rgba(255,106,44,.45);
+    --radius: 2px;
+    --display: 'Space Grotesk', sans-serif;
+    --body: 'Inter', sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--navy);
+    color:var(--paper);
+    font-family:var(--body);
+    line-height:1.55;
+    overflow-x:hidden;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  a{color:inherit; text-decoration:none;}
+  ul{list-style:none;}
+  img{max-width:100%; display:block;}
+
+  :focus-visible{
+    outline: 2px solid var(--stamp);
+    outline-offset: 3px;
+  }
+
+  .wrap{
+    max-width:1080px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--stamp);
+  }
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(10,37,64,.82);
+    backdrop-filter: blur(8px);
+    border-bottom:1px solid var(--line-strong);
+  }
+  .nav-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px 24px;
+    max-width:1080px;
+    margin:0 auto;
+  }
+  .logo{
+    font-family:var(--mono);
+    font-weight:700;
+    font-size:15px;
+    letter-spacing:.04em;
+    border:1px solid var(--line-strong);
+    padding:6px 10px;
+  }
+  .logo span{color:var(--stamp);}
+  .nav-links{
+    display:flex;
+    gap:28px;
+    align-items:center;
+  }
+  .nav-links a{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--paper-dim);
+    transition:color .2s;
+  }
+  .nav-links a:hover{color:var(--paper);}
+  .nav-cta{
+    border:1px solid var(--stamp);
+    color:var(--stamp) !important;
+    padding:8px 14px;
+  }
+  .nav-cta:hover{
+    background:var(--stamp);
+    color:var(--navy-deep) !important;
+  }
+  @media (max-width:640px){
+    .nav-links a:not(.nav-cta){display:none;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:72px 0 56px;
+    position:relative;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap:48px;
+    align-items:start;
+  }
+  @media (max-width:860px){
+    .hero-grid{grid-template-columns:1fr;}
+  }
+  .hero h1{
+    font-family:var(--display);
+    font-weight:700;
+    font-size:clamp(34px, 6vw, 58px);
+    line-height:1.08;
+    letter-spacing:-.01em;
+    margin:14px 0 20px;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--stamp);
+  }
+  .hero p.lede{
+    font-size:17px;
+    color:var(--paper-dim);
+    max-width:46ch;
+    margin-bottom:28px;
+  }
+  .hero-ctas{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  .btn{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    padding:13px 20px;
+    border:1px solid var(--line-strong);
+    display:inline-block;
+    transition:all .2s;
+  }
+  .btn-primary{
+    background:var(--stamp);
+    border-color:var(--stamp);
+    color:var(--navy-deep);
+    font-weight:700;
+  }
+  .btn-primary:hover{
+    background:transparent;
+    color:var(--stamp);
+  }
+  .btn-ghost:hover{
+    border-color:var(--paper);
+  }
+
+  /* ---------- TITLE BLOCK (signature element) ---------- */
+  .titleblock{
+    border:1px solid var(--line-strong);
+    background:var(--card);
+    font-family:var(--mono);
+    font-size:12px;
+    position:relative;
+    overflow:hidden;
+  }
+  .titleblock .row{
+    display:flex;
+    justify-content:space-between;
+    padding:10px 14px;
+    border-bottom:1px solid var(--card-line);
+    gap:12px;
+  }
+  .titleblock .row:last-child{border-bottom:none;}
+  .titleblock .label{color:var(--paper-dim); letter-spacing:.06em;}
+  .titleblock .val{color:var(--paper); text-align:right; font-weight:500;}
+  .titleblock .head{
+    padding:14px;
+    border-bottom:1px solid var(--card-line);
+    font-family:var(--display);
+    font-weight:700;
+    font-size:14px;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+  }
+  .stamp{
+    position:absolute;
+    top:14px;
+    right:-26px;
+    width:128px;
+    text-align:center;
+    transform:rotate(34deg);
+    border:2px solid var(--stamp);
+    border-radius:50%;
+    aspect-ratio:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--stamp);
+    font-family:var(--mono);
+    font-size:9.5px;
+    letter-spacing:.08em;
+    line-height:1.3;
+    text-transform:uppercase;
+    opacity:0;
+    animation: stampIn .5s ease-out .6s forwards;
+  }
+  .stamp::before{
+    content:"";
+    position:absolute;
+    inset:5px;
+    border:1px solid var(--stamp);
+    border-radius:50%;
+  }
+  @keyframes stampIn{
+    0%{opacity:0; transform:rotate(34deg) scale(1.6);}
+    70%{opacity:1;}
+    100%{opacity:.9; transform:rotate(34deg) scale(1);}
+  }
+
+  /* ---------- CAPABILITY STRIP ---------- */
+  .capability{
+    border-top:1px solid var(--line-strong);
+    border-bottom:1px solid var(--line-strong);
+    padding:40px 0;
+  }
+  .capability .wrap{
+    display:grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap:32px;
+    align-items:center;
+  }
+  @media (max-width:760px){
+    .capability .wrap{grid-template-columns:1fr;}
+  }
+  .capability p{
+    font-size:16px;
+    color:var(--paper-dim);
+    max-width:50ch;
+  }
+  .tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .tag{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    border:1px solid var(--line-strong);
+    padding:8px 12px;
+    color:var(--paper-dim);
+  }
+
+  /* ---------- SECTION HEADERS ---------- */
+  .section{padding:88px 0;}
+  .section-head{
+    margin-bottom:48px;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:16px;
+    flex-wrap:wrap;
+    border-bottom:1px solid var(--line-strong);
+    padding-bottom:20px;
+  }
+  .section-head h2{
+    font-family:var(--display);
+    font-weight:700;
+    font-size:clamp(26px,4vw,36px);
+    margin-top:8px;
+  }
+  .section-head .count{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--paper-dim);
+  }
+
+  /* ---------- WORK / SHEETS ---------- */
+  .sheet{
+    border:1px solid var(--line-strong);
+    background:var(--card);
+    margin-bottom:28px;
+    padding:32px;
+    opacity:0;
+    transform:translateY(18px);
+    transition:opacity .6s ease, transform .6s ease;
+  }
+  .sheet.in{opacity:1; transform:translateY(0);}
+  .sheet-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:6px;
+  }
+  .sheet-cat{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.08em;
+    color:var(--paper-dim);
+    text-transform:uppercase;
+  }
+  .sheet h3{
+    font-family:var(--display);
+    font-weight:700;
+    font-size:clamp(22px,3vw,28px);
+    margin:6px 0 14px;
+  }
+  .sheet p.outcome{
+    color:var(--paper-dim);
+    max-width:64ch;
+    margin-bottom:20px;
+  }
+  .callouts{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:10px 24px;
+    margin-bottom:22px;
+  }
+  @media (max-width:600px){
+    .callouts{grid-template-columns:1fr;}
+  }
+  .callouts li{
+    font-size:14px;
+    color:var(--paper);
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+  }
+  .callouts li::before{
+    content:"⌐";
+    color:var(--stamp);
+    font-family:var(--mono);
+    flex-shrink:0;
+  }
+  .sheet-link{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    border-bottom:1px solid var(--stamp);
+    color:var(--stamp);
+    padding-bottom:2px;
+  }
+  .sheet-link:hover{opacity:.75;}
+
+  /* ---------- PROCESS ---------- */
+  .phases{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1px;
+    background:var(--line-strong);
+    border:1px solid var(--line-strong);
+  }
+  @media (max-width:760px){
+    .phases{grid-template-columns:1fr;}
+  }
+  .phase{
+    background:var(--navy);
+    padding:26px 22px;
+  }
+  .phase .num{
+    font-family:var(--mono);
+    color:var(--stamp);
+    font-size:13px;
+    margin-bottom:14px;
+  }
+  .phase h4{
+    font-family:var(--display);
+    font-size:17px;
+    margin-bottom:10px;
+    text-transform:uppercase;
+    letter-spacing:.03em;
+  }
+  .phase p{
+    font-size:13.5px;
+    color:var(--paper-dim);
+  }
+
+  /* ---------- CONTACT / FOOTER ---------- */
+  footer{
+    border-top:1px solid var(--line-strong);
+    padding:80px 0 40px;
+  }
+  .contact-grid{
+    display:grid;
+    grid-template-columns:1.3fr 1fr;
+    gap:48px;
+    margin-bottom:56px;
+  }
+  @media (max-width:800px){
+    .contact-grid{grid-template-columns:1fr;}
+  }
+  footer h2{
+    font-family:var(--display);
+    font-weight:700;
+    font-size:clamp(28px,5vw,44px);
+    line-height:1.12;
+    margin-bottom:18px;
+  }
+  footer h2 em{font-style:normal; color:var(--stamp);}
+  footer p.sub{color:var(--paper-dim); max-width:46ch; margin-bottom:24px;}
+  .contact-links{display:flex; flex-direction:column; gap:10px;}
+  .contact-links a{
+    font-family:var(--mono);
+    font-size:14px;
+    border-bottom:1px solid transparent;
+    width:max-content;
+  }
+  .contact-links a:hover{border-bottom-color:var(--stamp); color:var(--stamp);}
+  .foot-bottom{
+    border-top:1px solid var(--line);
+    padding-top:24px;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:10px;
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--paper-dim);
+    letter-spacing:.04em;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:.01ms !important; transition-duration:.01ms !important; scroll-behavior:auto !important;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo">GP<span>.SYS</span></div>
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#process">Process</a>
+      <a href="#contact" class="nav-cta">Request Blueprint</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">// AI Agent Contractor</div>
+      <h1>I turn business operations into <em>blueprints</em> AI can run.</h1>
+      <p class="lede">Gyau Prince builds the systems behind businesses that no longer need a human standing at every step — commerce, community, leads, and client intake, automated by design, not by accident.</p>
+      <div class="hero-ctas">
+        <a href="#work" class="btn btn-ghost">View The Drawings ↓</a>
+        <a href="#contact" class="btn btn-primary">Request A Blueprint</a>
+      </div>
+    </div>
+
+    <div class="titleblock">
+      <div class="head">Drawing Set — Cover Sheet</div>
+      <div class="row"><span class="label">Project</span><span class="val">Business Automation Systems</span></div>
+      <div class="row"><span class="label">Drawn By</span><span class="val">Gyau Prince</span></div>
+      <div class="row"><span class="label">Discipline</span><span class="val">AI Agent Architecture</span></div>
+      <div class="row"><span class="label">Scale</span><span class="val">Not To Scale</span></div>
+      <div class="row"><span class="label">Sheet</span><span class="val">A-00 / Cover</span></div>
+      <div class="row"><span class="label">Revision</span><span class="val">2026.06</span></div>
+      <div class="stamp">Systems<br>Operational</div>
+    </div>
+  </div>
+</header>
+
+<section class="capability">
+  <div class="wrap">
+    <p>Four businesses. Four manual bottlenecks. Four blueprints replaced with systems that now run without someone watching them every hour.</p>
+    <div class="tags">
+      <span class="tag">E-Commerce Systems</span>
+      <span class="tag">Community Platforms</span>
+      <span class="tag">Lead Funnels</span>
+      <span class="tag">Client Intake Automation</span>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="work">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Drawing Set</div>
+        <h2>Project Sheets</h2>
+      </div>
+      <div class="count">4 sheets — A-01 to A-04</div>
+    </div>
+
+    <article class="sheet" data-sheet>
+      <div class="sheet-top">
+        <span class="sheet-cat">Sheet A-01 — Full-Stack Commerce System</span>
+      </div>
+      <h3>Kairos — Footwear &amp; Lifestyle Retail</h3>
+      <p class="outcome">Built the complete commercial engine behind a footwear and lifestyle brand — catalog, cart, accounts, and a custom-order intake pipeline — so the founder runs the business from a phone instead of a spreadsheet.</p>
+      <ul class="callouts">
+        <li>Catalog, cart &amp; checkout automated end to end</li>
+        <li>Paystack &amp; Mobile Money payment routing built in</li>
+        <li>Custom-order intake replaces back-and-forth DMs</li>
+        <li>WhatsApp handoff routes support without a call center</li>
+      </ul>
+      <a class="sheet-link" href="https://kairos-footwear.vercel.app" target="_blank" rel="noopener">View Live Build →</a>
+    </article>
+
+    <article class="sheet" data-sheet>
+      <div class="sheet-top">
+        <span class="sheet-cat">Sheet A-02 — Community Growth Platform</span>
+      </div>
+      <h3>Fluenca — Faith-Based Social Network</h3>
+      <p class="outcome">Designed the operating system behind a church-focused social platform — giving ministry leadership a way to grow and govern their community without manually moderating every account or post.</p>
+      <ul class="callouts">
+        <li>Role-based admin &amp; super-admin command structure</li>
+        <li>Built to scale across multiple congregations from one system</li>
+        <li>Community growth tools that run without a moderation team</li>
+      </ul>
+      <a class="sheet-link" href="https://fluenca.vercel.app" target="_blank" rel="noopener">View Live Build →</a>
+    </article>
+
+    <article class="sheet" data-sheet>
+      <div class="sheet-top">
+        <span class="sheet-cat">Sheet A-03 — Lead Qualification Funnel</span>
+      </div>
+      <h3>IncomePal — Affiliate Marketing Audit</h3>
+      <p class="outcome">Replaced manual discovery calls with a self-guided 72-hour audit that qualifies and segments affiliate marketers automatically — so the only leads that reach a calendar are the ones worth the time.</p>
+      <ul class="callouts">
+        <li>Diagnostic funnel scores &amp; segments leads automatically</li>
+        <li>Removes manual screening calls from the sales process</li>
+        <li>Hands qualified leads straight to outreach, ready to close</li>
+      </ul>
+      <a class="sheet-link" href="https://incomepal-audit3.netlify.app" target="_blank" rel="noopener">View Live Build →</a>
+    </article>
+
+    <article class="sheet" data-sheet>
+      <div class="sheet-top">
+        <span class="sheet-cat">Sheet A-04 — Client Intake &amp; Segmentation</span>
+      </div>
+      <h3>Health Resetter — Wellness Coaching Intake</h3>
+      <p class="outcome">Built a self-guided intake assessment that routes each visitor into one of six condition pathways — turning a wellness practice's first consultation into a two-minute automated step instead of a booked call.</p>
+      <ul class="callouts">
+        <li>Six-path symptom triage routes visitors automatically</li>
+        <li>Cuts manual intake calls out of the funnel entirely</li>
+        <li>Built mobile-first for lead capture at scale</li>
+      </ul>
+      <a class="sheet-link" href="https://healthresetterquiz.netlify.app" target="_blank" rel="noopener">View Live Build →</a>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Method</div>
+        <h2>How A Blueprint Gets Built</h2>
+      </div>
+      <div class="count">4 phases</div>
+    </div>
+    <div class="phases">
+      <div class="phase">
+        <div class="num">PHASE 01</div>
+        <h4>Survey</h4>
+        <p>Map the business as it runs today — the manual steps, the bottlenecks, the parts only a human currently handles.</p>
+      </div>
+      <div class="phase">
+        <div class="num">PHASE 02</div>
+        <h4>Draft</h4>
+        <p>Design the blueprint — the exact sequence an AI agent will follow to take that manual work off your plate.</p>
+      </div>
+      <div class="phase">
+        <div class="num">PHASE 03</div>
+        <h4>Build</h4>
+        <p>Construct the system — the site, the funnel, the platform, the automation — wired together and tested live.</p>
+      </div>
+      <div class="phase">
+        <div class="num">PHASE 04</div>
+        <h4>Operate</h4>
+        <p>Hand over a system that runs the function on its own. You watch the output. You stop doing the work.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <div class="eyebrow">Get In Touch</div>
+        <h2>Have a business <em>worth</em> automating?</h2>
+        <p class="sub">Send me what's eating your time right now. I'll tell you, plainly, whether it's worth a blueprint — and what it would take to build it.</p>
+        <a href="#contact" class="btn btn-primary">Request A Blueprint</a>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:[email protected]">[email protected]</a>
+        <a href="https://wa.me/233000000000" target="_blank" rel="noopener">WhatsApp →</a>
+        <a href="#" target="_blank" rel="noopener">LinkedIn →</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Gyau Prince — Drafted &amp; Operated</span>
+      <span>Rev 2026.06 · Sheet A-00</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // scroll reveal for sheets
+  const sheets = document.querySelectorAll('[data-sheet]');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    sheets.forEach(s => io.observe(s));
+  } else {
+    sheets.forEach(s => s.classList.add('in'));
+  }
+</script>
+
+</body>
+</html>
