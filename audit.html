@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apply For A Leverage Audit — LEVERAI</title>
+<meta name="description" content="A 4-minute diagnostic that finds exactly where your business is leaking time, leads, and revenue to manual work — and what fixing it looks like.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy: #0A2540;
+    --navy-deep: #071A2E;
+    --card: #0F2D4D;
+    --card-line: rgba(173,209,255,.16);
+    --line: rgba(173,209,255,.14);
+    --line-strong: rgba(173,209,255,.32);
+    --paper: #EAF2FF;
+    --paper-dim: #93AECF;
+    --stamp: #FF6A2C;
+    --good: #4ADE80;
+    --display: 'Space Grotesk', sans-serif;
+    --body: 'Inter', sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--navy);
+    color:var(--paper);
+    font-family:var(--body);
+    line-height:1.55;
+    overflow-x:hidden;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  a{color:inherit; text-decoration:none;}
+  ul{list-style:none;}
+  :focus-visible{outline:2px solid var(--stamp); outline-offset:3px;}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 24px;}
+  .eyebrow{
+    font-family:var(--mono); font-size:12px; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--stamp);
+  }
+
+  /* NAV */
+  nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(10,37,64,.86); backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line-strong);
+  }
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 24px; max-width:1080px; margin:0 auto;
+  }
+  .logo{
+    font-family:var(--mono); font-weight:700; font-size:15px;
+    letter-spacing:.04em; border:1px solid var(--line-strong); padding:6px 10px;
+  }
+  .logo span{color:var(--stamp);}
+  .nav-links{display:flex; gap:24px; align-items:center;}
+  .nav-links a{
+    font-family:var(--mono); font-size:12px; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--paper-dim);
+  }
+  .nav-links a:hover{color:var(--paper);}
+  @media (max-width:640px){ .nav-links a:not(.nav-cta){display:none;} }
+
+  /* HERO */
+  .hero{padding:64px 0 48px;}
+  .hero h1{
+    font-family:var(--display); font-weight:700;
+    font-size:clamp(32px,6vw,52px); line-height:1.08; letter-spacing:-.01em;
+    margin:14px 0 18px; max-width:18ch;
+  }
+  .hero h1 em{font-style:normal; color:var(--stamp);}
+  .hero p.lede{font-size:17px; color:var(--paper-dim); max-width:52ch; margin-bottom:28px;}
+  .stat-row{display:flex; gap:28px; flex-wrap:wrap; margin-bottom:30px;}
+  .stat{font-family:var(--mono); font-size:12px; color:var(--paper-dim);}
+  .stat strong{display:block; font-family:var(--display); font-size:20px; color:var(--paper); font-weight:700;}
+  .btn{
+    font-family:var(--mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase;
+    padding:14px 24px; border:1px solid var(--line-strong); display:inline-block;
+    transition:all .2s; cursor:pointer; background:none; color:var(--paper);
+  }
+  .btn-primary{background:var(--stamp); border-color:var(--stamp); color:var(--navy-deep); font-weight:700;}
+  .btn-primary:hover{background:transparent; color:var(--stamp);}
+  .btn-ghost:hover{border-color:var(--paper);}
+  .btn[disabled]{opacity:.4; cursor:not-allowed;}
+
+  /* SECTION */
+  .section{padding:64px 0; border-top:1px solid var(--line-strong);}
+  .section-head{margin-bottom:36px;}
+  .section-head h2{
+    font-family:var(--display); font-weight:700; font-size:clamp(24px,4vw,32px); margin-top:8px;
+  }
+
+  /* QUALIFY GRID */
+  .qualify-grid{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+  @media (max-width:700px){ .qualify-grid{grid-template-columns:1fr;} }
+  .qualify-col{border:1px solid var(--line-strong); padding:24px;}
+  .qualify-col.yes{border-left:3px solid var(--good);}
+  .qualify-col.no{border-left:3px solid var(--stamp);}
+  .qualify-col .qh{font-family:var(--display); font-weight:700; font-size:16px; margin-bottom:14px;}
+  .qualify-col li{font-size:14px; color:var(--paper-dim); margin-bottom:10px; padding-left:18px; position:relative;}
+  .qualify-col.yes li::before{content:"✓"; position:absolute; left:0; color:var(--good);}
+  .qualify-col.no li::before{content:"✗"; position:absolute; left:0; color:var(--stamp);}
+
+  /* PILLARS */
+  .pillars{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line-strong); border:1px solid var(--line-strong);}
+  @media (max-width:760px){ .pillars{grid-template-columns:1fr;} }
+  .pillar{background:var(--navy); padding:24px 20px;}
+  .pillar .n{font-family:var(--mono); color:var(--stamp); font-size:13px; margin-bottom:12px;}
+  .pillar h4{font-family:var(--display); font-size:16px; margin-bottom:8px;}
+  .pillar p{font-size:13.5px; color:var(--paper-dim);}
+
+  /* PROCESS PHASES */
+  .phases{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line-strong); border:1px solid var(--line-strong);}
+  @media (max-width:760px){ .phases{grid-template-columns:1fr;} }
+  .phase{background:var(--navy); padding:22px 18px;}
+  .phase .num{font-family:var(--mono); color:var(--stamp); font-size:12px; margin-bottom:10px;}
+  .phase h4{font-family:var(--display); font-size:15px; margin-bottom:6px; text-transform:uppercase;}
+  .phase p{font-size:12.5px; color:var(--paper-dim);}
+
+  /* AUDIT CARD */
+  .audit-card{
+    border:1px solid var(--line-strong); background:var(--card);
+    padding:36px 28px; max-width:680px; margin:0 auto;
+    position:relative;
+  }
+  @media (max-width:560px){ .audit-card{padding:26px 18px;} }
+  .audit-step{display:none;}
+  .audit-step.active{display:block; animation:fadeUp .4s ease;}
+  @keyframes fadeUp{from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);}}
+
+  .progress-track{height:3px; background:var(--line); margin-bottom:28px; position:relative;}
+  .progress-fill{height:100%; background:var(--stamp); width:0%; transition:width .4s ease;}
+  .progress-label{font-family:var(--mono); font-size:11px; color:var(--paper-dim); margin-bottom:6px; letter-spacing:.06em; text-transform:uppercase;}
+
+  .audit-step h3{font-family:var(--display); font-size:22px; margin-bottom:6px;}
+  .audit-step .sub{font-size:13.5px; color:var(--paper-dim); margin-bottom:24px;}
+
+  .field{margin-bottom:20px;}
+  .field label{
+    display:block; font-family:var(--mono); font-size:11px; letter-spacing:.06em;
+    text-transform:uppercase; color:var(--paper-dim); margin-bottom:8px;
+  }
+  .field input[type=text], .field input[type=email], .field input[type=tel], .field select, .field textarea{
+    width:100%; background:var(--navy); border:1px solid var(--line-strong); color:var(--paper);
+    padding:13px 14px; font-family:var(--body); font-size:14.5px; border-radius:1px;
+  }
+  .field textarea{min-height:90px; resize:vertical;}
+  .field select{appearance:none; background-image:linear-gradient(45deg, transparent 50%, var(--stamp) 50%), linear-gradient(135deg, var(--stamp) 50%, transparent 50%); background-position: calc(100% - 20px) center, calc(100% - 15px) center; background-size:5px 5px, 5px 5px; background-repeat:no-repeat;}
+  .field input:focus, .field select:focus, .field textarea:focus{outline:none; border-color:var(--stamp);}
+
+  .tag-grid{display:flex; flex-wrap:wrap; gap:8px;}
+  .tag-opt{
+    font-family:var(--mono); font-size:12px; padding:9px 13px; border:1px solid var(--line-strong);
+    cursor:pointer; color:var(--paper-dim); user-select:none; transition:all .15s;
+  }
+  .tag-opt.selected{border-color:var(--stamp); color:var(--stamp); background:rgba(255,106,44,.08);}
+
+  .step-actions{display:flex; justify-content:space-between; align-items:center; margin-top:28px; gap:12px;}
+  .back-link{font-family:var(--mono); font-size:12px; color:var(--paper-dim); cursor:pointer; background:none; border:none;}
+  .back-link:hover{color:var(--paper);}
+  .err{font-size:12px; color:var(--stamp); margin-top:-10px; margin-bottom:14px; display:none;}
+
+  /* SCANNING */
+  #step-scan{text-align:center; padding:30px 0;}
+  .scan-status{font-family:var(--mono); font-size:13px; color:var(--paper-dim); margin:20px 0 16px; min-height:18px;}
+  .scan-track{height:4px; background:var(--line); max-width:320px; margin:0 auto;}
+  .scan-fill{height:100%; background:var(--stamp); width:0%; transition:width .3s linear;}
+  .scan-ring{
+    width:70px; height:70px; margin:0 auto;
+    border:2px solid var(--line-strong); border-top-color:var(--stamp);
+    border-radius:50%; animation:spin 1s linear infinite;
+  }
+  @keyframes spin{to{transform:rotate(360deg);}}
+
+  /* LOCKED */
+  .lock-icon{font-family:var(--mono); font-size:11px; color:var(--stamp); letter-spacing:.1em; text-transform:uppercase; margin-bottom:10px;}
+
+  /* RESULT */
+  .score-display{text-align:center; padding:10px 0 26px; border-bottom:1px solid var(--card-line); margin-bottom:24px;}
+  .score-num{font-family:var(--display); font-weight:700; font-size:64px; color:var(--stamp); line-height:1;}
+  .score-tier{font-family:var(--mono); font-size:13px; letter-spacing:.06em; text-transform:uppercase; color:var(--paper); margin-top:8px;}
+  .score-blurb{font-size:14px; color:var(--paper-dim); max-width:46ch; margin:14px auto 0;}
+  .breakdown{font-family:var(--mono); font-size:12px; color:var(--paper-dim); margin-top:18px;}
+  .breakdown strong{color:var(--paper);}
+
+  footer{border-top:1px solid var(--line-strong); padding:48px 0 32px; margin-top:20px;}
+  .foot-bottom{
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+    font-family:var(--mono); font-size:11px; color:var(--paper-dim);
+  }
+  .foot-bottom a{color:var(--stamp);}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:.01ms !important; transition-duration:.01ms !important; scroll-behavior:auto !important;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">GP<span>.SYS</span></a>
+    <div class="nav-links">
+      <a href="index.html#work">Work</a>
+      <a href="index.html#process">Process</a>
+      <a href="#audit" class="nav-cta">Begin Audit</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">// LEVERAI — Leverage Audit</div>
+    <h1>Apply For A <em>Leverage Audit</em>.</h1>
+    <p class="lede">Most businesses are leaking time, leads, and revenue to manual work they don't even notice anymore. This audit finds exactly where yours is leaking — and shows you what fixing it looks like.</p>
+    <div class="stat-row">
+      <div class="stat"><strong>~4 min</strong>To complete</div>
+      <div class="stat"><strong>Instant</strong>Leverage score</div>
+      <div class="stat"><strong>7 / 14 days</strong>Prototype / delivery</div>
+    </div>
+    <a href="#audit" class="btn btn-primary">Begin The Audit ↓</a>
+  </div>
+</header>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Before You Apply</div>
+      <h2>This Isn't For Everyone</h2>
+    </div>
+    <div class="qualify-grid">
+      <div class="qualify-col yes">
+        <div class="qh">✓ This is for you if…</div>
+        <ul>
+          <li>You're running a real business with manual, repeatable work eating your time</li>
+          <li>You're ready to have a system built, not just hear advice about one</li>
+          <li>You want a specific automation shipped — not a strategy deck</li>
+        </ul>
+      </div>
+      <div class="qualify-col no">
+        <div class="qh">✗ This is not for you if…</div>
+        <ul>
+          <li>You want consulting that never turns into something running</li>
+          <li>You're not ready to invest in fixing the leak once it's found</li>
+          <li>You're looking for validation, not an honest diagnosis</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">The Engagement</div>
+      <h2>What The Audit Actually Gives You</h2>
+    </div>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="n">01</div>
+        <h4>Diagnostic Clarity</h4>
+        <p>A direct look at where your business is leaking time, leads, or revenue to work that's still being done by hand.</p>
+      </div>
+      <div class="pillar">
+        <div class="n">02</div>
+        <h4>A Leverage Blueprint</h4>
+        <p>Not a tactic list — the exact infrastructure that removes the leak, scoped to your business as it actually runs.</p>
+      </div>
+      <div class="pillar">
+        <div class="n">03</div>
+        <h4>Built, Not Just Advised</h4>
+        <p>LEVERAI builds the system. You don't walk away with a slide deck and the job of implementing it yourself.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">From Application To Delivery</div>
+      <h2>What Happens After You Apply</h2>
+    </div>
+    <div class="phases">
+      <div class="phase"><div class="num">01</div><h4>Apply</h4><p>A 4-minute audit, answered honestly. No fluff questions.</p></div>
+      <div class="phase"><div class="num">02</div><h4>Diagnosis</h4><p>Your leverage score, calculated and unlocked instantly.</p></div>
+      <div class="phase"><div class="num">03</div><h4>Prototype</h4><p>First working build in your hands within 7 days.</p></div>
+      <div class="phase"><div class="num">04</div><h4>Delivery</h4><p>Full system live and handed over within 14 days.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="audit">
+  <div class="wrap">
+    <div class="section-head" style="text-align:center;">
+      <div class="eyebrow">The Audit</div>
+      <h2>Begin Your Leverage Audit</h2>
+    </div>
+
+    <div class="audit-card" id="audit-card">
+
+      <!-- STEP 1 -->
+      <div class="audit-step active" data-step="1">
+        <div class="progress-label">Step 1 of 3 — About You</div>
+        <div class="progress-track"><div class="progress-fill" style="width:33%"></div></div>
+        <h3>Let's start with your business.</h3>
+        <p class="sub">Tell us what you run and where it hurts.</p>
+
+        <div class="field">
+          <label for="f-name">Business / Brand Name</label>
+          <input type="text" id="f-name" placeholder="e.g. Kairos Footwear">
+        </div>
+        <div class="field">
+          <label for="f-model">Which best describes your business model?</label>
+          <select id="f-model">
+            <option value="">Select one</option>
+            <option>E-commerce / Retail</option>
+            <option>Service-Based Business</option>
+            <option>Coaching / Info Product</option>
+            <option>SaaS / Tech</option>
+            <option>Agency / Freelance</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-challenge">What's the biggest manual drain on your time right now?</label>
+          <textarea id="f-challenge" placeholder="e.g. I answer the same customer questions all day on WhatsApp"></textarea>
+        </div>
+        <div class="err" id="err-1">Please fill in every field before continuing.</div>
+        <div class="step-actions">
+          <span></span>
+          <button class="btn btn-primary" onclick="nextStep(1)">Continue →</button>
+        </div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="audit-step" data-step="2">
+        <div class="progress-label">Step 2 of 3 — Your Business</div>
+        <div class="progress-track"><div class="progress-fill" style="width:66%"></div></div>
+        <h3>Where is the leakage coming from?</h3>
+        <p class="sub">This shapes your diagnosis.</p>
+
+        <div class="field">
+          <label for="f-revenue">Current monthly revenue</label>
+          <select id="f-revenue">
+            <option value="">Select one</option>
+            <option value="5">Under $500/month</option>
+            <option value="15">$500 – $2,000/month</option>
+            <option value="22">$2,000 – $10,000/month</option>
+            <option value="30">$10,000+/month</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-team">Team size</label>
+          <select id="f-team">
+            <option value="">Select one</option>
+            <option value="8">Just me</option>
+            <option value="14">2 – 5 people</option>
+            <option value="18">6 – 20 people</option>
+            <option value="20">20+ people</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Which of these is eating the most time right now? (select all that apply)</label>
+          <div class="tag-grid" id="areas-grid">
+            <div class="tag-opt" data-val="Lead Generation & Sales">Lead Generation & Sales</div>
+            <div class="tag-opt" data-val="Customer Support">Customer Support</div>
+            <div class="tag-opt" data-val="Email & Inbox">Email & Inbox</div>
+            <div class="tag-opt" data-val="Content & Social Media">Content & Social Media</div>
+            <div class="tag-opt" data-val="Meetings & Internal Ops">Meetings & Internal Ops</div>
+          </div>
+        </div>
+        <div class="err" id="err-2">Please answer every question and select at least one area.</div>
+        <div class="step-actions">
+          <button class="back-link" onclick="prevStep(2)">← Back</button>
+          <button class="btn btn-primary" onclick="nextStep(2)">Continue →</button>
+        </div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="audit-step" data-step="3">
+        <div class="progress-label">Step 3 of 3 — Goals & Readiness</div>
+        <div class="progress-track"><div class="progress-fill" style="width:100%"></div></div>
+        <h3>What would a breakthrough look like?</h3>
+        <p class="sub">Last step before your diagnosis.</p>
+
+        <div class="field">
+          <label for="f-goal">In the next 90 days, what would a breakthrough look like for you?</label>
+          <textarea id="f-goal" placeholder="e.g. I stop losing leads overnight because no one replied in time"></textarea>
+        </div>
+        <div class="field">
+          <label for="f-urgency">How soon do you want this solved?</label>
+          <select id="f-urgency">
+            <option value="">Select one</option>
+            <option value="25">As soon as possible</option>
+            <option value="15">Within the next month</option>
+            <option value="5">Just exploring for now</option>
+          </select>
+        </div>
+        <div class="err" id="err-3">Please answer every question before submitting.</div>
+        <div class="step-actions">
+          <button class="back-link" onclick="prevStep(3)">← Back</button>
+          <button class="btn btn-primary" onclick="startScan()">Run My Diagnosis →</button>
+        </div>
+      </div>
+
+      <!-- SCANNING -->
+      <div class="audit-step" id="step-scan" data-step="scan">
+        <div class="scan-ring"></div>
+        <div class="scan-status" id="scan-status">Mapping manual workflows…</div>
+        <div class="scan-track"><div class="scan-fill" id="scan-fill"></div></div>
+      </div>
+
+      <!-- LOCKED -->
+      <div class="audit-step" data-step="locked">
+        <div class="lock-icon">🔒 Diagnosis Locked</div>
+        <h3>Your Leverage Score is ready.</h3>
+        <p class="sub">Enter your details to unlock it.</p>
+
+        <div class="field">
+          <label for="f-fullname">Full Name</label>
+          <input type="text" id="f-fullname" placeholder="Your name">
+        </div>
+        <div class="field">
+          <label for="f-email">Email Address</label>
+          <input type="email" id="f-email" placeholder="you@business.com">
+        </div>
+        <div class="field">
+          <label for="f-whatsapp">WhatsApp Number</label>
+          <input type="tel" id="f-whatsapp" placeholder="e.g. +233 50 000 0000">
+        </div>
+        <div class="err" id="err-locked">Please fill in every field to unlock your diagnosis.</div>
+        <div class="step-actions">
+          <span></span>
+          <button class="btn btn-primary" onclick="unlockResult()">Unlock My Diagnosis →</button>
+        </div>
+      </div>
+
+      <!-- RESULT -->
+      <div class="audit-step" data-step="result">
+        <div class="score-display">
+          <div class="score-num" id="score-num">0</div>
+          <div class="score-tier" id="score-tier">Calculating…</div>
+          <p class="score-blurb" id="score-blurb"></p>
+          <div class="breakdown" id="score-breakdown"></div>
+        </div>
+        <h3>You're qualified to start with LEVERAI.</h3>
+        <p class="sub">Tell us exactly what you want systemized or automated, and send it straight to Gyau on WhatsApp.</p>
+        <div class="field">
+          <label for="f-describe">What do you want us to systemize or automate?</label>
+          <textarea id="f-describe" placeholder="Describe the process, tool, or bottleneck you want fixed"></textarea>
+        </div>
+        <div class="step-actions" style="flex-direction:column; align-items:stretch; gap:10px;">
+          <button class="btn btn-primary" onclick="sendToWhatsApp()" style="text-align:center;">Send My Application Via WhatsApp →</button>
+          <a class="btn btn-ghost" style="text-align:center;" id="email-fallback" href="#">Or Send By Email Instead</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-bottom">
+      <span>© 2026 Gyau Prince — LEVERAI Leverage Audit</span>
+      <span><a href="index.html">← Back to Portfolio</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const answers = { areas: [] };
+
+  function showStep(stepId){
+    document.querySelectorAll('.audit-step').forEach(el => el.classList.remove('active'));
+    document.querySelector(`[data-step="${stepId}"]`).classList.add('active');
+    document.getElementById('audit-card').scrollIntoView({behavior:'smooth', block:'start'});
+  }
+
+  function nextStep(from){
+    if(from === 1){
+      const name = document.getElementById('f-name').value.trim();
+      const model = document.getElementById('f-model').value;
+      const challenge = document.getElementById('f-challenge').value.trim();
+      if(!name || !model || !challenge){ document.getElementById('err-1').style.display='block'; return; }
+      document.getElementById('err-1').style.display='none';
+      answers.name = name; answers.model = model; answers.challenge = challenge;
+      showStep(2);
+    }
+    if(from === 2){
+      const revenue = document.getElementById('f-revenue');
+      const team = document.getElementById('f-team');
+      if(!revenue.value || !team.value || answers.areas.length === 0){
+        document.getElementById('err-2').style.display='block'; return;
+      }
+      document.getElementById('err-2').style.display='none';
+      answers.revenuePts = parseInt(revenue.value);
+      answers.revenueLabel = revenue.options[revenue.selectedIndex].text;
+      answers.teamPts = parseInt(team.value);
+      answers.teamLabel = team.options[team.selectedIndex].text;
+      showStep(3);
+    }
+  }
+
+  function prevStep(from){ showStep(from - 1); }
+
+  document.getElementById('areas-grid').addEventListener('click', (e) => {
+    const opt = e.target.closest('.tag-opt');
+    if(!opt) return;
+    const val = opt.getAttribute('data-val');
+    opt.classList.toggle('selected');
+    if(answers.areas.includes(val)){
+      answers.areas = answers.areas.filter(a => a !== val);
+    } else {
+      answers.areas.push(val);
+    }
+  });
+
+  const scanMessages = [
+    "Mapping manual workflows…",
+    "Cross-referencing leverage points…",
+    "Calculating leverage score…",
+    "Finalizing diagnosis…"
+  ];
+
+  function startScan(){
+    const goal = document.getElementById('f-goal').value.trim();
+    const urgency = document.getElementById('f-urgency');
+    if(!goal || !urgency.value){ document.getElementById('err-3').style.display='block'; return; }
+    document.getElementById('err-3').style.display='none';
+    answers.goal = goal;
+    answers.urgencyPts = parseInt(urgency.value);
+    answers.urgencyLabel = urgency.options[urgency.selectedIndex].text;
+
+    showStep('scan');
+    let i = 0;
+    const statusEl = document.getElementById('scan-status');
+    const fillEl = document.getElementById('scan-fill');
+    statusEl.textContent = scanMessages[0];
+    const msgInterval = setInterval(() => {
+      i++;
+      if(i < scanMessages.length){ statusEl.textContent = scanMessages[i]; }
+    }, 750);
+    let pct = 0;
+    const fillInterval = setInterval(() => {
+      pct += 4;
+      fillEl.style.width = Math.min(pct,100) + '%';
+      if(pct >= 100){
+        clearInterval(fillInterval);
+        clearInterval(msgInterval);
+        setTimeout(() => showStep('locked'), 300);
+      }
+    }, 110);
+  }
+
+  function unlockResult(){
+    const name = document.getElementById('f-fullname').value.trim();
+    const email = document.getElementById('f-email').value.trim();
+    const wa = document.getElementById('f-whatsapp').value.trim();
+    if(!name || !email || !wa){ document.getElementById('err-locked').style.display='block'; return; }
+    document.getElementById('err-locked').style.display='none';
+    answers.fullname = name; answers.email = email; answers.whatsapp = wa;
+
+    const areaScore = Math.min(answers.areas.length * 5, 25);
+    const total = answers.revenuePts + answers.teamPts + areaScore + answers.urgencyPts;
+    answers.score = total;
+
+    let tier, blurb;
+    if(total >= 80){
+      tier = "Critical Leverage Gap — High-Priority Fit";
+      blurb = "You're losing significant time and revenue to manual work across multiple areas. This is exactly the kind of business LEVERAI builds for first.";
+    } else if(total >= 55){
+      tier = "Strong Leverage Opportunity — Good Fit";
+      blurb = "There's a clear, fixable leak in how your business runs day to day. A focused build here would free up real hours and revenue.";
+    } else if(total >= 30){
+      tier = "Early-Stage Leverage Opportunity";
+      blurb = "You're early, but the manual work is already adding up. Starting now means you scale without the bottleneck compounding.";
+    } else {
+      tier = "Worth A Conversation";
+      blurb = "You're just exploring — that's fine. Here's what your business would look like with the manual work taken off your plate.";
+    }
+    document.getElementById('score-num').textContent = total;
+    document.getElementById('score-tier').textContent = tier;
+    document.getElementById('score-blurb').textContent = blurb;
+    document.getElementById('score-breakdown').innerHTML =
+      `<strong>Biggest leak area${answers.areas.length>1?'s':''}:</strong> ${answers.areas.join(', ')}`;
+
+    showStep('result');
+  }
+
+  function buildSummary(){
+    return `LEVERAI Audit Application\n\n` +
+      `Name: ${answers.fullname}\n` +
+      `Business: ${answers.name}\n` +
+      `Model: ${answers.model}\n` +
+      `Email: ${answers.email}\n` +
+      `WhatsApp: ${answers.whatsapp}\n\n` +
+      `Biggest manual drain: ${answers.challenge}\n` +
+      `Revenue: ${answers.revenueLabel}\n` +
+      `Team size: ${answers.teamLabel}\n` +
+      `Time-eating areas: ${answers.areas.join(', ')}\n` +
+      `90-day breakthrough goal: ${answers.goal}\n` +
+      `Urgency: ${answers.urgencyLabel}\n\n` +
+      `Leverage Score: ${answers.score}/100\n\n` +
+      `What they want systemized: ${document.getElementById('f-describe').value.trim()}`;
+  }
+
+  function sendToWhatsApp(){
+    const text = encodeURIComponent(buildSummary());
+    window.open(`https://wa.me/233509460630?text=${text}`, '_blank');
+  }
+
+  document.getElementById('email-fallback').addEventListener('click', function(e){
+    e.preventDefault();
+    const subject = encodeURIComponent('LEVERAI Audit Application — ' + (answers.name || ''));
+    const body = encodeURIComponent(buildSummary());
+    window.location.href = `mailto:legacyprince010@gmail.com?subject=${subject}&body=${body}`;
+  });
+</script>
+
+</body>
+</html>
